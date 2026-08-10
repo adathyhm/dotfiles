@@ -1,6 +1,4 @@
--- LSP Plugins
 return {
-	-- Main LSP Configuration
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
@@ -21,32 +19,8 @@ return {
 		-- Useful status updates for LSP.
 		--{ 'j-hui/fidget.nvim', opts = {} },
 	},
-	config = function()
-		-- Brief aside: **What is LSP?**
-		--
-		-- LSP is an initialism you've probably heard, but might not understand what it is.
-		--
-		-- LSP stands for Language Server Protocol. It's a protocol that helps editors
-		-- and language tooling communicate in a standardized fashion.
-		--
-		-- In general, you have a "server" which is some tool built to understand a particular
-		-- language (such as `gopls`, `lua_ls`, `rust_analyzer`, etc.). These Language Servers
-		-- (sometimes called LSP servers, but that's kind of like ATM Machine) are standalone
-		-- processes that communicate with some "client" - in this case, Neovim!
-		--
-		-- LSP provides Neovim with features like:
-		--  - Go to definition
-		--  - Find references
-		--  - Autocompletion
-		--  - Symbol Search
-		--  - and more!
-		--
-		-- Thus, Language Servers are external tools that must be installed separately from
-		-- Neovim. This is where `mason` and related plugins come into play.
-		--
-		-- If you're wondering about lsp vs treesitter, you can check out the wonderfully
-		-- and elegantly composed help section, `:help lsp-vs-treesitter`
 
+	config = function()
 		--  This function gets run when an LSP attaches to a particular buffer.
 		--    That is to say, every time a new file is opened that is associated with
 		--    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
@@ -122,8 +96,6 @@ return {
 		--  See `:help lsp-config` for information about keys and how to configure
 		---@type table<string, vim.lsp.Config>
 		local servers = {
-			ty = {},
-			ruff = {},
 			-- clangd = {},
 			-- gopls = {},
 			-- pyright = {},
@@ -152,7 +124,8 @@ return {
 						end
 					end
 
-					client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+					local current_settings = client.config.settings --[[@as lspconfig.settings.lua_ls]]
+					client.config.settings.Lua = vim.tbl_deep_extend("force", current_settings.Lua, {
 						runtime = {
 							version = "LuaJIT",
 							path = { "lua/?.lua", "lua/?/init.lua" },
@@ -161,10 +134,7 @@ return {
 							checkThirdParty = false,
 							-- NOTE: this is a lot slower and will cause issues when working on your own configuration.
 							--  See https://github.com/neovim/nvim-lspconfig/issues/3189
-							library = vim.tbl_extend("force", vim.api.nvim_get_runtime_file("", true), {
-								"${3rd}/luv/library",
-								"${3rd}/busted/library",
-							}),
+							library = vim.api.nvim_get_runtime_file("", true),
 						},
 					})
 				end,
@@ -176,6 +146,14 @@ return {
 				},
 			},
 		}
+
+		-- Automatically install LSPs and related tools to stdpath for Neovim
+		require("mason").setup({})
+
+		-- Translates between nvim-lspconfig server names and mason.nvim package names (e.g. lua_ls <-> lua-language-server)
+		require("mason-lspconfig").setup({
+			automatic_enable = true, -- Change this to true if you want to automatically enable servers that are installed manually (e.g. via :Mason / :MasonInstall)
+		})
 
 		-- Ensure the servers and tools above are installed
 		--

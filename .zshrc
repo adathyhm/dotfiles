@@ -5,7 +5,7 @@ SAVEHIST=1000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/olsen/.zshrc'
+zstyle :compinstall filename '/home/adathyhm/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -21,5 +21,5 @@ alias rm='rm -i'
 PROMPT="${NEWLINE}%K{#32302f}%F{#d4be98}$(date +%_I:%M%P) %K{#3c3836}%F{#d4be98} %n %K{#504945} %~ %f%k ❯ "
 
 # plugin
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

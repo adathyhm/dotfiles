@@ -1,4 +1,4 @@
-# bi11u/dotfiles
+# adathyhm/dotfiles
 
 <img src="/screenshots/desktop-gruvbox3.png" width=100% />
 
