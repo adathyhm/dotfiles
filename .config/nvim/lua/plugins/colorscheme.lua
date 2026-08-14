@@ -3,11 +3,9 @@ return {
 	name = "gruvbox-material",
 	lazy = false,
 	priority = 1000,
-	config = function()
-		require("gruvbox-material").setup({
-			background = {
-				transparent = true, -- set the background to be opaque
-			},
-		})
-	end,
+	opts = {
+		background = {
+			transparent = true, -- set the background to be opaque
+		},
+	},
 }

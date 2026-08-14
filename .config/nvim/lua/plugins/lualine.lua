@@ -7,17 +7,14 @@
 
 return {
 	"nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
-  --event = { "BufReadPre", "BufNewFile" },
-	config = function()
-		require("lualine").setup({
-			options = {
-				theme = "gruvbox-material",
-				icons_enabled = true,
-				section_separators = { left = "", right = "" },
-				component_separators = "|",
-			},
-		})
-	end,
 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	event = { "BufReadPre", "BufNewFile" },
+	opts = {
+		options = {
+			theme = "gruvbox-material",
+			icons_enabled = true,
+			section_separators = { left = "", right = "" },
+			component_separators = "|",
+		},
+	},
 }
