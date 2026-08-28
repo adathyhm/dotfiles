@@ -1,4 +1,4 @@
 [mgr]
-show_hidden = true
+show_hidden = false
 image_filter = 'nearest'
 show_symlink = false
