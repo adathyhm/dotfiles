@@ -85,6 +85,7 @@ button {
 #battery,
 #network,
 #pulseaudio#microphone,
+#power-profiles-daemon,
 #pulseaudio {
   padding: 0 3px;
   color: @fg0;
@@ -148,4 +149,16 @@ button {
 
 #pulseaudio.microphone.muted {
   color: @grey0;
+}
+
+#power-profiles-daemon.performance {
+  color: @bg_visual_red;
+}
+
+#power-profiles-daemon.balanced {
+  color: @bg_visual_yellow;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @bg_visual_green;
 }

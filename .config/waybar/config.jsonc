@@ -5,6 +5,8 @@
   "modules-left": [
     "niri/workspaces",
     "custom/separator",
+    "power-profiles-daemon",
+    "custom/separator",
     "niri/window"
   ],
 
@@ -96,5 +98,16 @@
 
     "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
     "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%"
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip": false,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
   }
 }
