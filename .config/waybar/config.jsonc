@@ -91,7 +91,7 @@
   "pulseaudio#microphone": {
     "format": "{format_source}",
     "format-source": "<span foreground='#a9b665'></span> {volume}%",
-    "format-source-muted": "<span foreground='#7c6f64'></span>", 
+    "format-source-muted": "<span foreground='#7c6f64'>󰍭</span>", 
 
     "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
     "on-click-right": "foot -e wiremix",
