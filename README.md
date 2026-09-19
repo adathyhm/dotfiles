@@ -1,6 +1,6 @@
 # adathyhm/dotfiles
 
-<img src="/screenshots/desktop-gruvbox3.png" width=100% />
+<img src="/screenshots/desktop-gruvbox4.png" width=100% />
 
 My configuration of Niri for Arch Linux. These dotfiles are designed with the goal of providing a niri environment that is lightweight, efficient and aesthetically pleasing.
 
