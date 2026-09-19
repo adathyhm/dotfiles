@@ -1,96 +1,101 @@
 {
   "layer": "top",
-  "height": 25,
-  "spacing": 5,
+  "position": "left",
+
+  "margin-top": 6,
+  "margin-left": 6,
+  "margin-bottom": 6,
+  "margin-right": 0,
+  // "padding": 5,
+  "spacing": 10,
+
   "modules-left": [
-    "niri/workspaces",
-    "custom/separator",
-    "power-profiles-daemon",
-    "custom/separator",
-    "niri/window"
+    "clock#date",
   ],
 
   "modules-center": [
+    "hyprland/workspaces",
   ],
 
   "modules-right": [
-    "pulseaudio#microphone",
-    "custom/separator",
-    "pulseaudio",
-    "custom/separator",
     "network",
-    "custom/separator",
+    "pulseaudio",
+    "pulseaudio#microphone",
     "battery",
-    "custom/separator",
-    "clock"
+    "clock#time",
+    "custom/power"
   ],
 
-  "niri/window": {
-    "separate-outputs": true
-  },
-
-
-  "niri/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "on-click": "activate"
-  },
-
-  "clock": {
-    "tooltip": false,
-    "format": "<span foreground='#d699b6'></span> {:%a, %e %b  <span foreground='#e67e80'>󰥔</span> %H:%M}"
-  },
-
   "battery": {
-    "tooltip": false,
+    "interval": 2,
     "states": {
       "good": 95,
-      "warning": 25,
+      "warning": 30,
       "critical": 15
     },
-    "format": "{icon} {capacity}%",
-    "format-charging": "<span foreground='#e69875'></span> {capacity}%",
-    "format-icons": {
-      "default": [
-        "<span foreground='#e69875'></span>",
-        "<span foreground='#e69875'></span>",
-        "<span foreground='#e69875'></span>",
-        "<span foreground='#e69875'></span>",
-        "<span foreground='#e69875'></span>"
-      ]
-    }
+    "format": "{icon}",
+    "format-charging": "",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   },
 
   "network": {
-    "format-wifi": "󰤨",
-    "format-disconnected": "󰤭",
-    "tooltip-format": "{essid}"
+    "format-wifi": "",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰲜",
+    "tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}\n{ifname}\n{ipaddr}/{cidr}\n",
+    "tooltip-format-wifi": " {essid} {frequency}MHz\nStrength: {signaldBm}dBm ({signalStrength}%)\nIP: {ipaddr}/{cidr}\n {bandwidthUpBits}  {bandwidthDownBits}",
+    "interval": 10
   },
 
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "~/.local/bin/powermenu"
+  },
 
-  "custom/separator": {
-    "format": "",
+  "clock#date": {
+    "format": "{:%d%n%m%n%y%n}",
+    "tooltip-format": false,
+  },
+
+  "clock#time": {
+    "format": "{:%H\n%M}",
     "tooltip": false
   },
 
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "",
-    "format-icons": {
-      "default": [
-        "<span foreground='#7fbbb3'>󰕿</span>",
-        "<span foreground='#7fbbb3'>󰖀</span>",
-        "<span foreground='#7fbbb3'>󰕾</span>"
-      ]
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "format": "{icon}",
+    "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
+    "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
+    "sort-by-number": true,
+    "active-only": false
+  },
 
-    },
+  "hyprland/window": {
+    "max-length": 100,
+    "separate-outputs": true
+  },
+
+  "pulseaudio": {
+    "on-click-right": "foot -e wiremix",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "sleep 0.1 && foot wiremix"
+    "format": "<span foreground='#fab387'>{icon}</span>",
+    "format-muted": "<span foreground='#7c6f64'></span>",
+    "format-icons": {
+      "default": ["", "", ""]
+    }
   },
 
   "pulseaudio#microphone": {
     "format": "{format_source}",
-    "format-source": "<span foreground='#a9b665'></span> {volume}%",
+    "format-source": "<span foreground='#a9b665'></span>",
     "format-source-muted": "<span foreground='#7c6f64'>󰍭</span>", 
 
     "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
@@ -99,15 +104,4 @@
     "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
     "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%"
   },
-
-  "power-profiles-daemon": {
-    "format": "{icon}",
-    "tooltip": false,
-    "format-icons": {
-      "default": "",
-      "performance": "",
-      "balanced": "",
-      "power-saver": ""
-    }
-  }
 }

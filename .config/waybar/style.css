@@ -1,164 +1,57 @@
-@define-color bg_dim #1b1b1b;
-@define-color bg0 #282828;
-@define-color bg1 #32302F;
-@define-color bg2 #32302f;
-@define-color bg3 #45403D;
-@define-color bg4 #45403d;
-@define-color bg5 #5a524c;
-@define-color bg_diff_red #402120;
-@define-color bg_diff_green #34381b;
-@define-color bg_diff_blue #0e363e;
-@define-color bg_statusline1 #32302f;
-@define-color bg_statusline2 #3a3735;
-@define-color bg_statusline3 #504945;
-@define-color bg_current_word #3c3836;
-@define-color bg_visual_red #4c3432;
-@define-color bg_visual_green #3b4439;
-@define-color bg_visual_blue #374141;
-@define-color bg_visual_yellow #4f422e;
-@define-color bg_visual_purple #443840;
-@define-color fg0 #d4be98;
-@define-color fg1 #ddc7a1;
-@define-color red #ea6962;
-@define-color orange #e78a4e;
-@define-color yellow #d8a657;
-@define-color green #a9b665;
-@define-color aqua #89b482;
-@define-color blue #7daea3;
-@define-color purple #d3869b;
-@define-color grey0 #7c6f64;
-@define-color grey1 #928374;
-@define-color grey2 #a89984;
-
 * {
-  font-family: Iosevka Nerd Font Propo;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-window#waybar {
-  background-color: rgba(40, 40, 40, 0.8);
-  /*background-color: @bg0;*/
-  color: @fg0;
-}
-
-window#waybar.hidden {
-  opacity: 0.2;
-}
-
-button {
-  /* Use box-shadow instead of border so the text isn't offset */
-  box-shadow: inset 0 -3px transparent;
-  /* Avoid rounded borders under each button name */
+  font-family: "Iosevka Nerd Font Propo";
+  font-size: 20px;
+  font-weight: 900;
+  padding: 0px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
   border: none;
-  border-radius: 0;
+  border-radius: 0px;
+  min-height: 0px;
+  margin: 0px;
+  /* font-feature-settings: "liga" on; */
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-
-#workspaces button:hover {
-  color: @fg0;
-  box-shadow: inherit;
-  text-shadow: inherit;
-  background: transparent;
-}
-
-#workspaces button {
-  padding: 0 5px;
-  color: @grey0;
-  margin: 4px 0 4px 5px;
-}
-
-#workspaces button.selected {
-  color: @fg0;
-}
-
-#workspaces button.active {
-  color: @fg0;
-}
-
-#workspaces button.urgent {
-  color: @red;
-}
-
-#clock,
-#battery,
-#network,
-#pulseaudio#microphone,
-#power-profiles-daemon,
-#pulseaudio {
-  padding: 0 3px;
-  color: @fg0;
-  margin: 0px 5px;
-}
-
-#window,
-#workspaces {
-  margin: 0 5px;
-}
-
-/* If workspaces is the leftmost module, reduce left margin */
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0px;
-}
-
-#clock {
-  color: @fg0;
-}
-
-#pulseaudio {
-  color: @fg0;
-}
-
-#pulseaudio.muted {
-  color: @grey0;
-}
-
-#network {
-  color: @aqua;
-}
-
-#network.disconnected {
-  color: @grey0;
-}
-
-#battery {
-  color: @fg0;
-}
-
-#battery.warning:not(.charging) {
-  color: @yellow;
-}
-
-#battery.critical:not(.charging) {
-  color: @red;
+/* The whole bar */
+window#waybar,
+#waybar {
+  color: #d4be98;
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-duration: 0.5s;
+  border-radius: 0px;
+  background-color: rgba(40, 40, 40, 0.8);
+  border: 1px solid #4d4d4d;
+  margin: 5px;
 }
 
 #custom-power {
-  color: @red;
-  margin-right: 5px;
+  margin: 10px;
 }
 
-#custom-separator {
-  color: @bg4;
+#clock {
+  margin: 10px;
 }
 
-#pulseaudio.microphone {
-  color: @fg0;
+#network {
+  color: #89b482;
 }
 
-#pulseaudio.microphone.muted {
-  color: @grey0;
+#battery {
+  color: #d8a657;
 }
 
-#power-profiles-daemon.performance {
-  color: @bg_visual_red;
+#custom-power {
+  color: #ea6962;
 }
 
-#power-profiles-daemon.balanced {
-  color: @bg_visual_yellow;
+#workspaces button {
+  color: rgb(77, 77, 77);
 }
 
-#power-profiles-daemon.power-saver {
-  color: @bg_visual_green;
+#workspaces button.active {
+  color: rgba(245, 228, 184, 0.85);
+}
+
+#waybar button.hover {
+  border: 1px solid #f5e4b8;
 }
