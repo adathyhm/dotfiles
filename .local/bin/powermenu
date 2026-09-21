@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SELECTION="$(printf " Lock\n󰤄 Suspend\n Reboot\n󰐥 Shutdown" | fuzzel --dmenu -l 4 -p "Power Menu: ")"
+SELECTION="$(printf " Lock\n󰤄 Suspend\n Reboot\n󰐥 Poweroff" | bash ~/.local/bin/fuzzel_helper.sh --dmenu -l 4 -p "Power Menu: ")"
 
 case $SELECTION in
 	*"Lock")
@@ -9,6 +9,6 @@ case $SELECTION in
 		systemctl suspend;;
 	*"Reboot")
 		systemctl reboot;;
-	*"Shutdown")
+	*"Poweroff")
 		systemctl poweroff;;
 esac

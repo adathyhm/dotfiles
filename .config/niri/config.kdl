@@ -16,16 +16,29 @@ input {
 
 environment {
   XDG_CURRENT_DESKTOP "niri"
-  QT_QPA_PLATFORM "wayland"
+  XDG_SESSION_TYPE "wayland"
+  XDG_SESSION_DESKTOP "niri"
+  GDK_BACKEND "wayland,x11,*"
+  QT_QPA_PLATFORM "wayland;xcb"
+  SDL_VIDEODRIVER "wayland"
+  CLUTTER_BACKEND "wayland"
+  QT_AUTO_SCREEN_SCALE_FACTOR "1"
+  QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+  QT_QPA_PLATFORMTHEME "qt5ct"
   ELECTRON_OZONE_PLATFORM_HINT "auto"
-  QT_QPA_PLATFORMTHEME "qt6ct"
   QT_QPA_PLATFORMTHEME_QT6 "qt6ct"
-  DISPLAY ":1"
 }
 
 cursor {
   xcursor-theme "Capitaine Cursors (Gruvbox)"
   xcursor-size 24
+}
+
+blur {
+  passes 3
+  offset 3
+  noise 0.02
+  saturation 1.5
 }
 
 layout {
@@ -42,7 +55,7 @@ layout {
 
   default-column-width { proportion 0.5; }
   focus-ring {
-    width 3
+    width 1
     active-color "#504945"
     inactive-color "#505050"
   }
@@ -65,7 +78,7 @@ layout {
 }
 
 spawn-at-startup "waybar"
-spawn-sh-at-startup "swaybg -i $HOME/Pictures/walls/gruvbox-shipInThePark.png"
+spawn-sh-at-startup "swaybg -i $HOME/Pictures/walls/warrior-gruvbox.jpg"
 spawn-sh-at-startup "wlsunset -t 4000 -T 4001"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 //spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
@@ -96,17 +109,31 @@ window-rule {
   clip-to-geometry true
 }
 
+layer-rule {
+  match namespace="launcher"
+  background-effect{
+    blur true
+  }
+}
+
+layer-rule {
+  match namespace="waybar"
+  background-effect{
+    blur true
+  }
+}
+
 binds {
   // Mod-Shift-/, which is usually the same as Mod-?,
   // shows a list of important hotkeys.
   Mod+Shift+Slash { show-hotkey-overlay; }
 
-  Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
-  Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-  Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
+  Mod+Return hotkey-overlay-title="Open a Terminal: Foot" { spawn "foot"; }
+  Mod+Space hotkey-overlay-title="Run an Application: Fuzzel" { spawn-sh "bash ~/.local/bin/fuzzel_helper.sh"; }
+  Super+Alt+L hotkey-overlay-title="Lock the Screen: Hyprlock" { spawn "hyprlock"; }
   Mod+E hotkey-overlay-title="Open File Manager: Yazi" { spawn-sh "foot yazi"; }
-  Mod+W hotkey-overlay-title="Open Browser: brave origin" { spawn "brave-origin"; }
-  Mod+V hotkey-overlay-title="Open text clipboard" { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
+  Mod+W hotkey-overlay-title="Open Browser: Brave Origin" { spawn "brave-origin"; }
+  Mod+V hotkey-overlay-title="Open text clipboard" { spawn-sh "cliphist list | bash ~/.local/bin/fuzzel_helper.sh --dmenu | cliphist decode | wl-copy"; }
   Mod+X hotkey-overlay-title="Open powermenu" {spawn-sh "~/.local/bin/powermenu"; }
 
   // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
