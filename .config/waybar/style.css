@@ -1,7 +1,7 @@
 * {
-  font-family: "Iosevka Nerd Font Propo";
+  font-family: "BigBlueTermPlus Nerd Font Propo";
   font-size: 20px;
-  font-weight: 900;
+  /* font-weight: 900; */
   padding: 0px;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -24,6 +24,14 @@ window#waybar,
   margin: 5px;
 }
 
+#network,
+#battery,
+#pulseaudio,
+#pulseaudio#microphone,
+#power-profiles-daemon {
+  padding: 2px;
+}
+
 #custom-power {
   margin: 10px;
 }
@@ -42,6 +50,18 @@ window#waybar,
 
 #custom-power {
   color: #ea6962;
+}
+
+#power-profiles-daemon.performance {
+  color: #4c3432;
+}
+
+#power-profiles-daemon.balanced {
+  color: #4f422e;
+}
+
+#power-profiles-daemon.power-saver {
+  color: #3b4439;
 }
 
 #workspaces button {

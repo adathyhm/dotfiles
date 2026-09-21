@@ -14,7 +14,7 @@
   ],
 
   "modules-center": [
-    "hyprland/workspaces",
+    "niri/workspaces",
   ],
 
   "modules-right": [
@@ -35,6 +35,7 @@
     },
     "format": "{icon}",
     "format-charging": "",
+    "tooltip-format": "{capacity}%",
     "format-icons": [
       "",
       "",
@@ -50,7 +51,8 @@
     "format-disconnected": "󰲜",
     "tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}\n{ifname}\n{ipaddr}/{cidr}\n",
     "tooltip-format-wifi": " {essid} {frequency}MHz\nStrength: {signaldBm}dBm ({signalStrength}%)\nIP: {ipaddr}/{cidr}\n {bandwidthUpBits}  {bandwidthDownBits}",
-    "interval": 10
+    "interval": 10,
+    "on-click": "foot -e wifitui",
   },
 
   "custom/power": {
@@ -69,16 +71,15 @@
     "tooltip": false
   },
 
-  "hyprland/workspaces": {
+  "niri/workspaces": {
     "all-outputs": true,
     "format": "{icon}",
-    "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
-    "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
     "sort-by-number": true,
-    "active-only": false
+    "active-only": false,
+    "on-click": "activate",
   },
 
-  "hyprland/window": {
+  "niri/window": {
     "max-length": 100,
     "separate-outputs": true
   },
@@ -104,4 +105,15 @@
     "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
     "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%"
   },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip": false,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  }
 }
