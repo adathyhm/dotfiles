@@ -136,6 +136,9 @@ binds {
   Mod+V hotkey-overlay-title="Open text clipboard" { spawn-sh "cliphist list | bash ~/.local/bin/fuzzel_helper.sh --dmenu | cliphist decode | wl-copy"; }
   Mod+X hotkey-overlay-title="Open powermenu" {spawn-sh "~/.local/bin/powermenu"; }
 
+  Mod+Shift+C hotkey-overlay-title="Set focused cast window" {set-dynamic-cast-window; }
+  Mod+Shift+X hotkey-overlay-title="Clear focused cast window" {clear-dynamic-cast-target; }
+
   // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
   // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
 
