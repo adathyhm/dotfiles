@@ -20,7 +20,6 @@ window#waybar,
   transition-duration: 0.5s;
   border-radius: 0px;
   background-color: rgba(40, 40, 40, 0.8);
-  border: 1px solid #4d4d4d;
   margin: 5px;
 }
 
