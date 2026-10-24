@@ -43,7 +43,7 @@ blur {
 
 layout {
   gaps 8
-  background-color "#282828"
+  background-color "#1d2021"
   center-focused-column "never"
 
   preset-column-widths {
@@ -55,7 +55,7 @@ layout {
 
   default-column-width { proportion 0.5; }
   focus-ring {
-    width 1
+    width 2
     active-color "#504945"
     inactive-color "#505050"
   }
@@ -78,8 +78,8 @@ layout {
 }
 
 spawn-at-startup "waybar"
-spawn-sh-at-startup "swaybg -i $HOME/Pictures/walls/warrior-gruvbox.jpg"
-spawn-sh-at-startup "wlsunset -t 4000 -T 4001"
+spawn-sh-at-startup "swaybg -i $HOME/Pictures/walls/scary-gruv.jpg"
+spawn-sh-at-startup "wlsunset -t 4500 -T 5000 -l 28.61 -L 77.21"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 //spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 

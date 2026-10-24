@@ -10,10 +10,10 @@ markup=1
 padding=8,10
 margin=20
 
-background-color=#282828
+background-color=#1d2021
 text-color=#ddc7a1
-border-color=#45403d
-progress-color=over #3c3836
+border-color=#3c3836
+progress-color=over #32302f
 
 [urgency=high]
-border-color=#402120
+border-color=#3c1f1e

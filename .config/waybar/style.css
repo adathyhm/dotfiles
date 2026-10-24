@@ -1,6 +1,6 @@
 * {
   font-family: "BigBlueTermPlus Nerd Font Propo";
-  font-size: 20px;
+  font-size: 19px;
   /* font-weight: 900; */
   padding: 0px;
   transition-property: background-color;
@@ -19,7 +19,7 @@ window#waybar,
   transition-property: color, background-color, border-color, box-shadow;
   transition-duration: 0.5s;
   border-radius: 0px;
-  background-color: rgba(40, 40, 40, 0.8);
+  background-color: rgba(29, 32, 33, 0.8);
   margin: 5px;
 }
 
@@ -52,15 +52,15 @@ window#waybar,
 }
 
 #power-profiles-daemon.performance {
-  color: #4c3432;
+  color: #442e2d;
 }
 
 #power-profiles-daemon.balanced {
-  color: #4f422e;
+  color: #473c29;
 }
 
 #power-profiles-daemon.power-saver {
-  color: #3b4439;
+  color: #333e34;
 }
 
 #workspaces button {

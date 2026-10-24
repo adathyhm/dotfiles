@@ -4,6 +4,7 @@ return {
 	lazy = false,
 	priority = 1000,
 	opts = {
+		contrast = "hard",
 		background = {
 			transparent = true, -- set the background to be opaque
 		},

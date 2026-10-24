@@ -19,21 +19,21 @@
   marker_selected = { fg = "#d4be98", bg = "#d4be98" }
 
 # Count
-  count_copied   = { fg = "#282828", bg = "#89b482" }
-  count_cut      = { fg = "#282828", bg = "#d3869b" }
-  count_selected = { fg = "#282828", bg = "#d4be98" }
+  count_copied   = { fg = "#1d2021", bg = "#89b482" }
+  count_cut      = { fg = "#1d2021", bg = "#d3869b" }
+  count_selected = { fg = "#1d2021", bg = "#d4be98" }
 
 # Border
   border_symbol = "│"
-    border_style  = { fg = "#45403d" }
+    border_style  = { fg = "#3c3836" }
 # : }}}
 
 
 # : Tabs {{{
 
   [tabs]
-    active   = { fg = "#282828", bg = "#a89984" }
-  inactive = { fg = "#a89984", bg = "#32302f" }
+    active   = { fg = "#1d2021", bg = "#a89984" }
+  inactive = { fg = "#a89984", bg = "#282828" }
 
 # Separator
   sep_inner = { open = "", close = "" }
@@ -45,16 +45,16 @@
 # : Mode {{{
 
   [mode]
-    normal_main = { fg = "#282828", bg = "#a89984", bold = true }
-  normal_alt  = { fg = "#a89984", bg = "#32302f" }
+    normal_main = { fg = "#1d2021", bg = "#a89984", bold = true }
+  normal_alt  = { fg = "#a89984", bg = "#282828" }
 
 # Select mode
-  select_main = { fg = "#282828", bg = "#e78a4e", bold = true }
-  select_alt  = { fg = "#a89984", bg = "#32302f" }
+  select_main = { fg = "#1d2021", bg = "#e78a4e", bold = true }
+  select_alt  = { fg = "#a89984", bg = "#282828" }
 
 # Unset mode
-  unset_main = { fg = "#282828", bg = "#a9b665", bold = true }
-  unset_alt  = { fg = "#a89984", bg = "#32302f" }
+  unset_main = { fg = "#1d2021", bg = "#a9b665", bold = true }
+  unset_alt  = { fg = "#a89984", bg = "#282828" }
 
 # : }}}
 
@@ -77,16 +77,16 @@
   sep_left = { open = "\ue0be", close = "\ue0b8" }
   sep_right = { open = "\ue0be", close = "\ue0b8" }
 # Permissions
-  perm_sep   = { fg = "#45403d" }
-  perm_type  = { fg = "#32302f" }
+  perm_sep   = { fg = "#3c3836" }
+  perm_type  = { fg = "#282828" }
   perm_read  = { fg = "#a9b665" }
   perm_write = { fg = "#ea6962" }
   perm_exec  = { fg = "#a9b665" }
 
 # Progress
   progress_label  = { fg = "#ddc7a1", bold = true }
-  progress_normal = { fg = "#32302f", bg   = "#32302f" }
-  progress_error  = { fg = "#ea6962", bg   = "#32302f" }
+  progress_normal = { fg = "#282828", bg   = "#282828" }
+  progress_error  = { fg = "#ea6962", bg   = "#282828" }
 
 # : }}}
 
@@ -95,12 +95,12 @@
 
   [which]
     cols            = 3
-      mask            = { bg = "#32302f" }
+      mask            = { bg = "#282828" }
   cand            = { fg = "#7daea3" }
   rest            = { fg = "#928374" }
   desc            = { fg = "#e78a4e" }
   separator       = "  "
-    separator_style = { fg = "#32302f" }
+    separator_style = { fg = "#282828" }
 
 # : }}}
 
@@ -175,7 +175,7 @@
 # : Task manager {{{
 
   [tasks]
-    border  = { fg = "#32302f" }
+    border  = { fg = "#282828" }
   title   = {}
   hovered = { underline = true }
 
@@ -189,7 +189,7 @@
   run     = { fg = "#d3869b" }
   desc    = {}
   hovered = { reversed = true, bold = true }
-  footer  = { fg = "#32302f", bg = "#a89984" }
+  footer  = { fg = "#282828", bg = "#a89984" }
 
 # : }}}
 
